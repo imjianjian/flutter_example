@@ -1,177 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example/Components/PageTemplates/normalPageTemplate.dart';
+import 'dart:math';
 
 class FlexLayout extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title:"flex layout",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('flex layout'),
-          leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
-            Navigator.pop(context);
-          }),
-        ),
+    return  NormalPage(
+        title: 'flex layout',
         body: Center(
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Text('Flex Start',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.pink,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.amber,
-                    ),
-                  ],
-                ),
-                Text('Flex End',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.pink,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.amber,
-                    ),
-                  ],
-                ),
-                Text('Flex Center',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.pink,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.amber,
-                    ),
-                  ],
-                ),
-                Text('Flex Space Around',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.pink,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.amber,
-                    ),
-                  ],
-                ),
-                Text('Flex Space Between',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.pink,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.amber,
-                    ),
-                  ],
-                ),
-                Text('Flex Space Evenly',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.pink,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.amber,
-                    ),
-                  ],
-                )
+                _ListTitle(title: 'Flex Start'),
+                _FlexRow(mainAxisAlignment: MainAxisAlignment.start),
+                _ListTitle(title: 'Flex End'),
+                _FlexRow(mainAxisAlignment: MainAxisAlignment.end),
+                _ListTitle(title: 'Flex Center'),
+                _FlexRow(mainAxisAlignment: MainAxisAlignment.center),
+                _ListTitle(title: 'Flex Space Around'),
+                _FlexRow(mainAxisAlignment: MainAxisAlignment.spaceAround),
+                _ListTitle(title: 'Flex Flex Space Between'),
+                _FlexRow(mainAxisAlignment: MainAxisAlignment.spaceBetween),
+                _ListTitle(title: 'Flex Space Evenly'),
+                _FlexRow(mainAxisAlignment: MainAxisAlignment.spaceEvenly),
               ],
             )
           )
-        ),
-      ),
+        )
     );
   }
+}
 
+class _FlexRow extends StatelessWidget{
+
+  MainAxisAlignment mainAxisAlignment;
+
+  _FlexRow({Key key,@required this.mainAxisAlignment}):super(key:key);
+
+  CreateContainers(int num){
+     var _Containers = <Widget>[];
+     for(int i=0;i<num;i++){
+       _Containers.add(Container(
+         width: 100,
+         height: 100,
+         color: Color.fromARGB(255, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255)),
+       ));
+     }
+     return _Containers;
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisAlignment: mainAxisAlignment, children: CreateContainers(3));
+  }
+}
+
+class _ListTitle extends StatelessWidget{
+  String title;
+  _ListTitle({Key key,@required this.title}): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title,
+          style: TextStyle(
+              fontSize: 24,
+              color:Colors.pink,
+              fontWeight: FontWeight.bold
+          )),
+    );
+  }
 }

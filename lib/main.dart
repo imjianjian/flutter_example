@@ -4,7 +4,8 @@ import 'package:flutter_example/Animate/StaggeredAnimations.dart';
 import 'package:flutter_example/Interactivity/Navigation.dart';
 import 'package:flutter_example/Interactivity/StatefulWidget.dart';
 import 'package:flutter_example/Layout/FlexLayout.dart';
-import 'package:flutter_example/Layout/RowAndColumn.dart';
+import 'package:flutter_example/Layout/GridLayout.dart';
+import 'package:flutter_example/Layout/StackLayout.dart';
 import 'package:flutter_example/Routes.dart';
 import 'package:flutter_example/Animate/myAnimation.dart';
 
@@ -35,8 +36,9 @@ class HomePage extends StatelessWidget{
             padding: EdgeInsets.all(8.0),
             children: <Widget>[
               _ListTitle(title: 'Layout'),
-              _ListItem(routes: RowAndCloumn(),title: 'Row And Column'),
               _ListItem(routes: FlexLayout(),title: 'Flex Layout'),
+              _ListItem(routes: GridLayout(),title: 'Grid Layout'),
+              _ListItem(routes: StackLayout(),title: 'Stack Layout'),
 
               _ListTitle(title: 'Interactivity'),
               _ListItem(routes: MyStatefulWidget(),title: 'StatefulWidget'),
@@ -45,7 +47,7 @@ class HomePage extends StatelessWidget{
               _ListTitle(title: 'Animate'),
               _ListItem(routes: myAnimation(),title: 'Animation'),
               _ListItem(routes: HeroPageOne(),title: 'Hero Animation'),
-              _ListItem(routes: myStaggeredAnimations(),title: 'Staggered Animation')
+              _ListItem(routes: myStaggeredAnimations(),title: 'Staggered Animation'),
             ],
           ),
     );
@@ -92,11 +94,9 @@ class _ListTitle extends StatelessWidget{
       title: Text(title,
           style: TextStyle(
               fontSize: 24,
-              color:Colors.pink
+              color:Colors.pink,
+              fontWeight: FontWeight.bold
           )),
     );
   }
 }
-
-
-

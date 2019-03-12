@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example/Components/PageTemplates/normalPageTemplate.dart';
 
 class myNavigation extends StatefulWidget{
 
@@ -16,8 +17,8 @@ class myNavigationState extends State<myNavigation>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Navigation')),
+    return NormalPage(
+        title: 'Navigation',
       body: ListView(
         children: <Widget>[
           Center(
@@ -103,10 +104,8 @@ class PageB extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('pageB'),
-      ),
+    return NormalPage(
+      title: 'pageB',
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -133,10 +132,8 @@ class PageC extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('pageC'),
-      ),
+    return NormalPage(
+      title: 'pageC',
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -160,10 +157,8 @@ class PageD extends StatelessWidget{
   TextEditingController msgController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('PageD'),
-      ),
+    return NormalPage(
+      title: 'PageD',
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -194,8 +189,7 @@ class PageD extends StatelessWidget{
 class PageE extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GestureDetector(
+    return GestureDetector(
         child: Center(
             child: Hero(
               tag: 'imageHero',
@@ -205,7 +199,6 @@ class PageE extends StatelessWidget{
         onTap: () {
           Navigator.pop(context);
         },
-      ),
     );
   }
 }

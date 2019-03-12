@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_example/Components/PageTemplates/normalPageTemplate.dart';
 
 class MyStatefulWidget extends StatefulWidget  {
   @override
@@ -33,15 +34,8 @@ class MyStateWidget extends State<MyStatefulWidget>{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "StatefulWidget",
-        home: Scaffold(
-            appBar: AppBar(
-              title: Text('StatefulWidget'),
-              leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
-                Navigator.pop(context);
-              }),
-            ),
+    return NormalPage(
+            title: 'StatefulWidget',
             body: Center(
               child: Container(
                 child: Column(
@@ -162,7 +156,7 @@ class MyStateWidget extends State<MyStatefulWidget>{
                   ],
                 ),
               ),
-            ))
+            )
     );
   }
 }
