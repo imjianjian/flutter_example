@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Components/PageTemplates/normalPageTemplate.dart';
-import 'dart:math';
+import 'package:flutter_example/Components/PageTemplates/SinglelPageTemplate.dart';
+
+import 'package:flutter_example/Utils/ColorUtils.dart';
 
 class FlexLayout extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return  NormalPage(
+    return  SinglePage(
         title: 'flex layout',
         body: Center(
           child: SingleChildScrollView(
@@ -43,7 +44,7 @@ class _FlexRow extends StatelessWidget{
        _Containers.add(Container(
          width: 100,
          height: 100,
-         color: Color.fromARGB(255, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255)),
+         color: ColorUtils().RandomColor(),
        ));
      }
      return _Containers;

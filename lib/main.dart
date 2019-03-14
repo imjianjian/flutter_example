@@ -1,15 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Animate/HeroAnimation.dart';
-import 'package:flutter_example/Animate/StaggeredAnimations.dart';
-import 'package:flutter_example/Interactivity/Navigation.dart';
-import 'package:flutter_example/Interactivity/StatefulWidget.dart';
-import 'package:flutter_example/Layout/FlexLayout.dart';
-import 'package:flutter_example/Layout/GridLayout.dart';
-import 'package:flutter_example/Layout/StackLayout.dart';
+import 'package:flutter_example/Pages/Animation/HeroAnimation.dart';
+import 'package:flutter_example/Pages/Animation/StaggeredAnimations.dart';
+import 'package:flutter_example/Pages/Interactivity/Navigation.dart';
+import 'package:flutter_example/Pages/Interactivity/StatefulWidget.dart';
+import 'package:flutter_example/Pages/Layout/FlexLayout.dart';
+import 'package:flutter_example/Pages/Layout/GridLayout.dart';
+import 'package:flutter_example/Pages/Layout/StackLayout.dart';
+import 'package:flutter_example/Pages/ScopedModel/CatalogPage.dart';
 import 'package:flutter_example/Routes.dart';
-import 'package:flutter_example/Animate/myAnimation.dart';
+import 'package:flutter_example/Pages/Animation/myAnimation.dart';
+import 'package:flutter_example/Model/CartModel.dart';
+import 'package:flutter_example/Model/CatalogModel.dart';
+import 'package:provide/provide.dart';
+void main() {
 
-void main() => runApp(MyApp());
+  var cart = CartModel();
+  var catalog = CatalogModel();
+
+  catalog.addToCatalog(CatalogItem(name: 'apple',price: 12.0));
+  catalog.addToCatalog(CatalogItem(name: 'banana',price: 15.0));
+  catalog.addToCatalog(CatalogItem(name: 'orange',price: 16.0));
+  catalog.addToCatalog(CatalogItem(name: 'Grape',price: 18.0));
+
+  var providers = Providers();
+
+  providers
+    ..provide(Provider<CartModel>.value(cart))
+    ..provide(Provider<CatalogModel>.value(catalog));
+
+  runApp(ProviderNode(
+      providers: providers,
+      child: MyApp(),
+  ));
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -48,6 +71,9 @@ class HomePage extends StatelessWidget{
               _ListItem(routes: myAnimation(),title: 'Animation'),
               _ListItem(routes: HeroPageOne(),title: 'Hero Animation'),
               _ListItem(routes: myStaggeredAnimations(),title: 'Staggered Animation'),
+
+              _ListTitle(title: 'Model'),
+              _ListItem(routes: CatalogPage(),title: 'CartModel'),
             ],
           ),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-
-import 'package:flutter_example/Components/PageTemplates/normalPageTemplate.dart';
+import 'package:flutter_example/Components/PageTemplates/SinglelPageTemplate.dart';
+import 'package:flutter_example/Utils/ColorUtils.dart';
 
 class GridLayout extends StatelessWidget{
 
@@ -15,7 +14,7 @@ class GridLayout extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return NormalPage(
+    return SinglePage(
       title: 'Grid Layout',
       body: Center(
         child: GridView.count(
@@ -33,7 +32,7 @@ class _GridItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255)),
+      color: ColorUtils().RandomColor(),
       child: Center(
         child: Text("$index"),
       ),
