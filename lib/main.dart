@@ -7,11 +7,15 @@ import 'package:flutter_example/Pages/Layout/FlexLayout.dart';
 import 'package:flutter_example/Pages/Layout/GridLayout.dart';
 import 'package:flutter_example/Pages/Layout/StackLayout.dart';
 import 'package:flutter_example/Pages/ScopedModel/CatalogPage.dart';
+import 'package:flutter_example/Pages/Http/HttpClientAndDio.dart';
 import 'package:flutter_example/Routes.dart';
 import 'package:flutter_example/Pages/Animation/myAnimation.dart';
 import 'package:flutter_example/Model/CartModel.dart';
 import 'package:flutter_example/Model/CatalogModel.dart';
+import 'package:flutter_example/Pages/Event/PointMoveEvent.dart';
+import 'package:flutter_example/Pages/Event/Gesture.dart';
 import 'package:provide/provide.dart';
+
 void main() {
 
   var cart = CartModel();
@@ -74,6 +78,13 @@ class HomePage extends StatelessWidget{
 
               _ListTitle(title: 'Model'),
               _ListItem(routes: CatalogPage(),title: 'CartModel'),
+
+              _ListTitle(title: 'Http'),
+              _ListItem(routes: HttpPage(),title: 'HttpClient & Dio'),
+
+              _ListTitle(title: 'Event'),
+              _ListItem(routes: myPointerMoveEvent(),title: 'Pointer Move Event'),
+              _ListItem(routes: Gesture(),title: 'Gesture'),
             ],
           ),
     );
