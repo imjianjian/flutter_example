@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/Pages/Animation/HeroAnimation.dart';
 import 'package:flutter_example/Pages/Animation/StaggeredAnimations.dart';
+import 'package:flutter_example/Pages/File/IO.dart';
+import 'package:flutter_example/Pages/File/SharedPreferences.dart';
 import 'package:flutter_example/Pages/Interactivity/Navigation.dart';
 import 'package:flutter_example/Pages/Interactivity/StatefulWidget.dart';
 import 'package:flutter_example/Pages/Layout/FlexLayout.dart';
@@ -85,6 +87,10 @@ class HomePage extends StatelessWidget{
               _ListTitle(title: 'Event'),
               _ListItem(routes: myPointerMoveEvent(),title: 'Pointer Move Event'),
               _ListItem(routes: Gesture(),title: 'Gesture'),
+
+              _ListTitle(title: 'File'),
+              _ListItem(routes: IO(),title: 'Dart IO'),
+              _ListItem(routes: mySharedPreferences(),title: 'shared_preferences'),
             ],
           ),
     );
