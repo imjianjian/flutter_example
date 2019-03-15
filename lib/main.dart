@@ -8,6 +8,7 @@ import 'package:flutter_example/Pages/Interactivity/StatefulWidget.dart';
 import 'package:flutter_example/Pages/Layout/FlexLayout.dart';
 import 'package:flutter_example/Pages/Layout/GridLayout.dart';
 import 'package:flutter_example/Pages/Layout/StackLayout.dart';
+import 'package:flutter_example/Pages/Other/webView.dart';
 import 'package:flutter_example/Pages/ScopedModel/CatalogPage.dart';
 import 'package:flutter_example/Pages/Http/HttpClientAndDio.dart';
 import 'package:flutter_example/Routes.dart';
@@ -91,6 +92,9 @@ class HomePage extends StatelessWidget{
               _ListTitle(title: 'File'),
               _ListItem(routes: IO(),title: 'Dart IO'),
               _ListItem(routes: mySharedPreferences(),title: 'shared_preferences'),
+
+              _ListTitle(title: 'Other'),
+              _ListItem(routes: myWebView(),title: 'WebView'),
             ],
           ),
     );
